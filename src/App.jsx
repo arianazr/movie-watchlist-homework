@@ -5,17 +5,17 @@ import LoginPage from './pages/LoginPage'
 import MoviesPage from './pages/MoviesPage'
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        {/* TODO: add a wildcard route that handles unknown paths */}
-      </Routes>
-    </>
-  )
+    return (
+        <>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/movies" element={<MoviesPage />} />
+                <Route path='*' element={<p>Not Found</p>} />
+            </Routes>
+        </>
+    )
 }
 
 export default App
