@@ -1,6 +1,3 @@
-// TODO: import movies from utils/movies.js
-// TODO: implement Read - display the list of movies
-// TODO: implement Add, Update (toggle watched), and Delete
 import { useState } from "react";
 import { movies as prevMovies } from "../utils/movies";
 
@@ -26,7 +23,10 @@ function MoviesPage() {
             {/* Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {movies.map((movie, i) => (
-                    <div key={i} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex flex-col gap-3 hover:border-gray-600 transition-colors duration-200">
+                    <div onClick={() => {
+                        movie.watched = !movie.watched;
+                        setMovies((prev) => [...prev]);
+                    }} key={i} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex flex-col gap-3 hover:border-gray-600 transition-colors duration-200">
                         <div className="flex items-start justify-between gap-2">
                             <h2 className="text-white font-semibold text-lg leading-tight">{movie.title}</h2>
                             <span className={`text-xs font-medium px-2.5 py-1 rounded-full shrink-0 ${movie.watched ? "bg-green-900 text-green-300" : "bg-gray-800 text-gray-400"}`}>
@@ -43,6 +43,11 @@ function MoviesPage() {
                                 <span className="bg-gray-800 text-gray-300 text-xs px-2 py-0.5 rounded-md">{movie.genre}</span>
                             </div>
                         </div>
+                        <button
+                            className="mt-3 self-end text-s text-gray-600 hover:text-red-400 transition-colors duration-200"
+                            onClick={() => {
+                                setMovies((prev) => prev.filter((_, j) => j !== i));
+                            }}>Delete</button>
                     </div>
                 ))}
             </div>
