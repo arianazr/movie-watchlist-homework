@@ -11,7 +11,7 @@ function Navbar() {
                 {!user && <Link to={"/login"}>LogIn</Link>}
                 {user && <div>
                     <h1>Welcome {user.name}</h1>
-                    <button onClick={logout}>logOut</button>
+                    <button onClick={logout}>Log Out</button>
                 </div>
                 }
             </div>
