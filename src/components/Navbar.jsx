@@ -3,7 +3,7 @@ import { AuthContext } from '../context/AuthContext'
 import { useContext } from 'react'
 
 function Navbar() {
-    const { user, login, logout } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     return (
         <nav className="bg-gray-900 text-white px-6 py-4 flex items-center justify-between">
             <Link to="/" className="font-bold text-lg">Movie Watchlist</Link>
